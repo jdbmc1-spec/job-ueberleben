@@ -1,0 +1,691 @@
+{
+  "titel": "Würdest du deinen Job überleben? – Job #1 Kasse",
+  "folge": 1,
+  "job": "Kasse",
+  "runden": 3,
+  "nachlauf": 1.6,
+  "rundeEnde": {
+    "szene": 14
+  },
+  "szenen": [
+    {
+      "text": "Würdest du *8 Stunden* Samstag an der Supermarktkasse überleben? 3 Runden. Zähl mit!",
+      "hintergrund": "kasse",
+      "hintergrundOptionen": {
+        "einkauf": [
+          "pizza",
+          "chips",
+          "cola",
+          "salat"
+        ],
+        "betrag": "0,00 €"
+      },
+      "kamera": "zoom",
+      "figur": {
+        "ausdruck": "panik",
+        "pose": "kopf",
+        "rahmen": "nah",
+        "zittern": "Samstag"
+      },
+      "elemente": [
+        {
+          "typ": "schrift",
+          "text": "WÜRDEST DU\nDEINEN JOB\nÜBERLEBEN?",
+          "farbe": "gelb",
+          "groesse": 0.9,
+          "y": 400,
+          "rot": -4,
+          "ton": "spannung-hit",
+          "sofort": true
+        },
+        {
+          "typ": "stempel",
+          "text": "3 RUNDEN",
+          "farbe": "rot",
+          "groesse": 200,
+          "x": 880,
+          "y": 700,
+          "bei": "3"
+        },
+        {
+          "typ": "pill",
+          "text": "8 STUNDEN · SAMSTAG",
+          "x": 540,
+          "y": 660,
+          "sofort": true
+        }
+      ]
+    },
+    {
+      "text": "Runde eins: *47,12 Euro*. In Cent-Münzen.",
+      "hintergrund": "kasse",
+      "hintergrundOptionen": {
+        "einkauf": [
+          "muenzen",
+          "muenzen",
+          "muenzen",
+          "muenzen"
+        ],
+        "betrag": "47,12 €"
+      },
+      "figur": {
+        "ausdruck": "neutral",
+        "rahmen": "ganz",
+        "x": 260,
+        "wechsel": [
+          {
+            "bei": "Cent",
+            "ausdruck": "schock"
+          }
+        ]
+      },
+      "elemente": [
+        {
+          "typ": "runde",
+          "nr": 1,
+          "bei": "Runde"
+        },
+        {
+          "typ": "nebenfigur",
+          "figur": {
+            "haare": "glatze",
+            "bart": "voll",
+            "haarFarbe": "#9a9a9a",
+            "shirt": "#8e5bd8",
+            "gewicht": 0.7
+          },
+          "ausdruck": "grinsen",
+          "x": 790,
+          "y": 1130,
+          "breite": 500,
+          "spiegeln": true,
+          "bei": "47,12",
+          "rein": "seite"
+        },
+        {
+          "typ": "sfx",
+          "text": "KLIMPER!",
+          "farbe": "gelb",
+          "x": 760,
+          "y": 560,
+          "bei": "Cent",
+          "ton": "geld"
+        }
+      ]
+    },
+    {
+      "text": "Und *14* Leute warten.",
+      "hintergrund": "kasse",
+      "hintergrundOptionen": {
+        "einkauf": [
+          "muenzen",
+          "muenzen",
+          "muenzen",
+          "muenzen"
+        ],
+        "betrag": "3,40 €"
+      },
+      "figur": {
+        "ausdruck": "panik",
+        "rahmen": "ganz",
+        "x": 260,
+        "zittern": "warten"
+      },
+      "elemente": [
+        {
+          "typ": "nebenfigur",
+          "figur": {
+            "haare": "dutt",
+            "weiblich": true,
+            "haarFarbe": "#d9d9d9",
+            "shirt": "#e76f9a"
+          },
+          "ausdruck": "wuetend",
+          "x": 640,
+          "y": 1060,
+          "breite": 340,
+          "spiegeln": true,
+          "bei": "Und"
+        },
+        {
+          "typ": "nebenfigur",
+          "figur": {
+            "haare": "strubbel",
+            "haarFarbe": "#2b1f1a",
+            "shirt": "#3b82f6"
+          },
+          "ausdruck": "wuetend",
+          "x": 820,
+          "y": 1040,
+          "breite": 320,
+          "spiegeln": true,
+          "bei": "Und"
+        },
+        {
+          "typ": "nebenfigur",
+          "figur": {
+            "haare": "lang",
+            "weiblich": true,
+            "haarFarbe": "#c98a3a",
+            "shirt": "#f59e0b"
+          },
+          "ausdruck": "wuetend",
+          "x": 980,
+          "y": 1020,
+          "breite": 300,
+          "spiegeln": true,
+          "bei": "14"
+        },
+        {
+          "typ": "stempel",
+          "text": "14 LEUTE",
+          "farbe": "rot",
+          "groesse": 220,
+          "x": 760,
+          "y": 520,
+          "bei": "14"
+        }
+      ]
+    },
+    {
+      "text": "A: Zweite Kasse rufen. B: Weiterzählen. Drei. Zwei. Eins! Richtig: *A*!",
+      "hintergrund": "kasse",
+      "hintergrundOptionen": {
+        "einkauf": [
+          "muenzen",
+          "muenzen",
+          "muenzen",
+          "muenzen"
+        ],
+        "betrag": "3,40 €"
+      },
+      "abdunkeln": true,
+      "figur": {
+        "ausdruck": "panik",
+        "rahmen": "ganz",
+        "x": 260
+      },
+      "elemente": [
+        {
+          "typ": "wahl",
+          "frage": "WAS MACHST DU?",
+          "a": {
+            "text": "Zweite Kasse\nrufen",
+            "icon": "handy",
+            "bei": "A: Zweite"
+          },
+          "b": {
+            "text": "Ruhig\nweiterzählen",
+            "icon": "geld",
+            "bei": "B: Weiter"
+          },
+          "richtig": "a",
+          "zaehlen": [
+            "Drei",
+            "Zwei",
+            "Eins"
+          ],
+          "aufloesungBei": "Richtig"
+        }
+      ]
+    },
+    {
+      "text": "Mit B zählst du bis *Ladenschluss*. A? Punkt für dich!",
+      "hintergrund": "kasse",
+      "hintergrundOptionen": {
+        "einkauf": [
+          "muenzen",
+          "muenzen",
+          "muenzen"
+        ],
+        "betrag": "46,98 €",
+        "uhr": "19:58"
+      },
+      "figur": {
+        "ausdruck": "erschoepft",
+        "rahmen": "ganz",
+        "x": 260,
+        "wechsel": [
+          {
+            "bei": "A?",
+            "ausdruck": "jubel",
+            "pose": "jubeln"
+          }
+        ]
+      },
+      "elemente": [
+        {
+          "typ": "pill",
+          "text": "B: 8 STUNDEN SPÄTER",
+          "y": 640,
+          "x": 700,
+          "bei": "Mit"
+        },
+        {
+          "typ": "stempel",
+          "text": "+1\nPUNKT",
+          "farbe": "gruen",
+          "groesse": 230,
+          "x": 780,
+          "y": 900,
+          "bei": "Punkt"
+        }
+      ]
+    },
+    {
+      "text": "Runde zwei: Gurke ohne Preis.",
+      "hintergrund": "kasse",
+      "hintergrundOptionen": {
+        "einkauf": [
+          "gurke"
+        ],
+        "betrag": "?,?? €"
+      },
+      "figur": {
+        "ausdruck": "neutral",
+        "rahmen": "ganz",
+        "x": 260,
+        "wechsel": [
+          {
+            "bei": "ohne",
+            "ausdruck": "schock"
+          }
+        ]
+      },
+      "elemente": [
+        {
+          "typ": "runde",
+          "nr": 2,
+          "bei": "Runde"
+        },
+        {
+          "typ": "nebenfigur",
+          "figur": {
+            "haare": "kurz",
+            "haarFarbe": "#1f1a17",
+            "shirt": "#ef4444",
+            "sonnenbrille": true,
+            "gewicht": 0.5
+          },
+          "ausdruck": "grinsen",
+          "x": 800,
+          "y": 1130,
+          "breite": 480,
+          "spiegeln": true,
+          "bei": "Gurke",
+          "rein": "seite"
+        },
+        {
+          "typ": "schrift",
+          "text": "???",
+          "farbe": "rot",
+          "groesse": 150,
+          "x": 640,
+          "y": 560,
+          "bei": "Ohne"
+        }
+      ]
+    },
+    {
+      "text": "Der Kunde: *Angebot*! 10 Cent!",
+      "hintergrund": "kasse",
+      "hintergrundOptionen": {
+        "einkauf": [
+          "gurke"
+        ],
+        "betrag": "?,?? €"
+      },
+      "figur": {
+        "ausdruck": "verlegen",
+        "rahmen": "ganz",
+        "x": 260
+      },
+      "elemente": [
+        {
+          "typ": "nebenfigur",
+          "figur": {
+            "haare": "kurz",
+            "haarFarbe": "#1f1a17",
+            "shirt": "#ef4444",
+            "sonnenbrille": true,
+            "gewicht": 0.5
+          },
+          "ausdruck": "grinsen",
+          "x": 800,
+          "y": 1130,
+          "breite": 480,
+          "spiegeln": true,
+          "sprechblase": "IM ANGEBOT!\n10 CENT!",
+          "sprechblaseBei": "Angebot"
+        }
+      ]
+    },
+    {
+      "text": "A: 10 Cent eintippen. B: Am Regal nachsehen. Drei. Zwei. Eins! Richtig: *B*!",
+      "hintergrund": "kasse",
+      "hintergrundOptionen": {
+        "einkauf": [
+          "gurke"
+        ],
+        "betrag": "?,?? €"
+      },
+      "abdunkeln": true,
+      "figur": {
+        "ausdruck": "verlegen",
+        "rahmen": "ganz",
+        "x": 260
+      },
+      "elemente": [
+        {
+          "typ": "wahl",
+          "frage": "WAS MACHST DU?",
+          "a": {
+            "text": "10 Cent\neintippen",
+            "icon": "geld",
+            "bei": "A: 10"
+          },
+          "b": {
+            "text": "Am Regal\nnachsehen",
+            "icon": "salat",
+            "bei": "B: Am"
+          },
+          "richtig": "b",
+          "zaehlen": [
+            "Drei",
+            "Zwei",
+            "Eins"
+          ],
+          "aufloesungBei": "Richtig"
+        }
+      ]
+    },
+    {
+      "text": "Regalpreis: *1,49 Euro*. Der Kunde wird still. Punkt für B!",
+      "hintergrund": "kasse",
+      "hintergrundOptionen": {
+        "einkauf": [
+          "gurke"
+        ],
+        "betrag": "1,49 €"
+      },
+      "figur": {
+        "ausdruck": "grinsen",
+        "rahmen": "ganz",
+        "x": 260,
+        "wechsel": [
+          {
+            "bei": "Punkt",
+            "ausdruck": "jubel",
+            "pose": "jubeln"
+          }
+        ]
+      },
+      "elemente": [
+        {
+          "typ": "nebenfigur",
+          "figur": {
+            "haare": "kurz",
+            "haarFarbe": "#1f1a17",
+            "shirt": "#ef4444",
+            "sonnenbrille": true,
+            "gewicht": 0.5
+          },
+          "ausdruck": "verlegen",
+          "x": 800,
+          "y": 1130,
+          "breite": 480,
+          "spiegeln": true,
+          "bei": "Regalpreis"
+        },
+        {
+          "typ": "zahl",
+          "text": "1,49 €",
+          "stil": "box",
+          "oben": "GURKE",
+          "x": 700,
+          "y": 500,
+          "bei": "1,49"
+        },
+        {
+          "typ": "stempel",
+          "text": "+1\nPUNKT",
+          "farbe": "gruen",
+          "groesse": 230,
+          "x": 420,
+          "y": 760,
+          "bei": "Punkt"
+        }
+      ]
+    },
+    {
+      "text": "Runde drei: *19:59 Uhr*. Gleich Feierabend.",
+      "hintergrund": "kasse",
+      "hintergrundOptionen": {
+        "einkauf": [],
+        "betrag": "0,00 €",
+        "uhr": "19:59"
+      },
+      "figur": {
+        "ausdruck": "gluecklich",
+        "rahmen": "ganz",
+        "x": 260,
+        "huepfen": "Feierabend"
+      },
+      "elemente": [
+        {
+          "typ": "runde",
+          "nr": 3,
+          "bei": "Runde"
+        },
+        {
+          "typ": "pill",
+          "text": "LADENSCHLUSS 20 UHR",
+          "x": 680,
+          "y": 640,
+          "bei": "Gleich"
+        }
+      ]
+    },
+    {
+      "text": "Da kommt ein *randvoller* Wagen.",
+      "hintergrund": "kasse",
+      "hintergrundOptionen": {
+        "einkauf": [
+          "pizza",
+          "chips",
+          "cola",
+          "burger"
+        ],
+        "betrag": "0,00 €",
+        "uhr": "19:59"
+      },
+      "figur": {
+        "ausdruck": "schock",
+        "rahmen": "ganz",
+        "x": 260
+      },
+      "elemente": [
+        {
+          "typ": "nebenfigur",
+          "figur": {
+            "haare": "kurz",
+            "haarFarbe": "#555555",
+            "shirt": "#1f2937",
+            "bart": "stoppeln",
+            "gewicht": 0.55
+          },
+          "ausdruck": "gluecklich",
+          "x": 800,
+          "y": 1130,
+          "breite": 480,
+          "spiegeln": true,
+          "bei": "kommt",
+          "rein": "seite"
+        },
+        {
+          "typ": "sfx",
+          "text": "QUIETSCH!",
+          "farbe": "orange",
+          "x": 760,
+          "y": 540,
+          "bei": "randvoller"
+        },
+        {
+          "typ": "wackeln",
+          "bei": "Wagen"
+        }
+      ]
+    },
+    {
+      "text": "A: Rollgitter runter. B: Lächeln und kassieren. Drei. Zwei. Eins! Richtig: *B*!",
+      "hintergrund": "kasse",
+      "hintergrundOptionen": {
+        "einkauf": [
+          "pizza",
+          "chips",
+          "cola",
+          "burger"
+        ],
+        "betrag": "0,00 €"
+      },
+      "abdunkeln": true,
+      "figur": {
+        "ausdruck": "wuetend",
+        "rahmen": "ganz",
+        "x": 260
+      },
+      "elemente": [
+        {
+          "typ": "wahl",
+          "frage": "WAS MACHST DU?",
+          "a": {
+            "text": "Rollgitter\nrunter",
+            "icon": "kreuz",
+            "bei": "A: Rollgitter"
+          },
+          "b": {
+            "text": "Lächeln und\nkassieren",
+            "icon": "herz",
+            "bei": "B: Lächeln"
+          },
+          "richtig": "b",
+          "zaehlen": [
+            "Drei",
+            "Zwei",
+            "Eins"
+          ],
+          "aufloesungBei": "Richtig"
+        }
+      ]
+    },
+    {
+      "text": "Der Kunde war dein *Chef*. Testkauf bestanden!",
+      "hintergrund": "kasse",
+      "hintergrundOptionen": {
+        "einkauf": [
+          "pizza",
+          "chips",
+          "cola",
+          "burger"
+        ],
+        "betrag": "64,30 €",
+        "uhr": "20:07"
+      },
+      "figur": {
+        "ausdruck": "schock",
+        "rahmen": "ganz",
+        "x": 260,
+        "wechsel": [
+          {
+            "bei": "bestanden",
+            "ausdruck": "jubel",
+            "pose": "jubeln"
+          }
+        ]
+      },
+      "elemente": [
+        {
+          "typ": "nebenfigur",
+          "figur": {
+            "haare": "kurz",
+            "haarFarbe": "#555555",
+            "shirt": "#1f2937",
+            "bart": "stoppeln",
+            "gewicht": 0.55,
+            "namensschild": "CHEF",
+            "schildFarbe": "#ffd43b"
+          },
+          "ausdruck": "grinsen",
+          "x": 810,
+          "y": 1130,
+          "breite": 480,
+          "spiegeln": false,
+          "bei": "Der"
+        },
+        {
+          "typ": "stempel",
+          "text": "BESTANDEN",
+          "farbe": "gruen",
+          "groesse": 260,
+          "x": 520,
+          "y": 880,
+          "bei": "bestanden"
+        }
+      ]
+    },
+    {
+      "text": "3 Punkte: *Chef-Material*. 2: Probezeit. 1: Gefeuert. 0: Hausverbot. Schreib deine Punkte in die Kommentare! Der *Top-Kommentar* wird der nächste Job.",
+      "hintergrund": "sunburst-lila",
+      "figur": false,
+      "elemente": [
+        {
+          "typ": "wertung",
+          "titel": "DEINE PUNKTE?",
+          "y": 700,
+          "bei": "3",
+          "zeilen": [
+            {
+              "punkte": "3/3",
+              "text": "Chef-Material",
+              "farbe": "gruen",
+              "bei": "3"
+            },
+            {
+              "punkte": "2/3",
+              "text": "Probezeit verlängert",
+              "farbe": "gelb",
+              "bei": "2:"
+            },
+            {
+              "punkte": "1/3",
+              "text": "Gefeuert",
+              "farbe": "orange",
+              "bei": "1:"
+            },
+            {
+              "punkte": "0/3",
+              "text": "Hausverbot",
+              "farbe": "rot",
+              "bei": "0:"
+            }
+          ]
+        },
+        {
+          "typ": "pill",
+          "text": "Deine Punkte in die Kommentare! 👇",
+          "y": 1180,
+          "bei": "Schreib"
+        },
+        {
+          "typ": "banner",
+          "titel": "NÄCHSTER JOB?",
+          "untertitel": "Top-Kommentar entscheidet",
+          "farbe": "gelb",
+          "y": 1580,
+          "bei": "Top"
+        }
+      ],
+      "untertitelY": 1290
+    }
+  ]
+}

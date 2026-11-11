@@ -1,0 +1,26 @@
+# Nur Code, Drehbücher und Texte. Videos, Ton und Render-Projekte lassen sich neu bauen.
+/*
+!/.gitignore
+!/README.md
+!/CLAUDE.md
+!/skill/
+
+!/serie/
+/serie/*
+!/serie/serie.json
+!/serie/folge-*/
+/serie/folge-*/*
+!/serie/folge-*/folge.json
+!/serie/folge-*/alignment.json
+!/serie/renders/
+/serie/renders/*
+!/serie/renders/*.txt
+
+!/kanal/
+/kanal/*
+!/kanal/*.mjs
+!/kanal/*.png
+
+*.mp3
+*.mp4
+.env

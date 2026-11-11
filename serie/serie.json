@@ -1,0 +1,22 @@
+{
+  "name": "Du",
+  "figur": {
+    "haare": "kurz",
+    "haarFarbe": "#8a4b2a",
+    "bart": "keiner",
+    "shirt": "#0f766e",
+    "hose": "#2b3a55",
+    "schuhe": "#f2f2f2",
+    "headset": false,
+    "flecken": false,
+    "pickel": false,
+    "fliegen": false,
+    "bauch": false,
+    "gewicht": 0.35,
+    "namensschild": "AZUBI"
+  },
+  "stimme": {
+    "voiceId": "",
+    "modell": "eleven_multilingual_v2"
+  }
+}
