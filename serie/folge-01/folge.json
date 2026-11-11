@@ -400,7 +400,7 @@
       ]
     },
     {
-      "text": "Regalpreis: *1,49 Euro*. Der Kunde wird still. Punkt für B!",
+      "text": "Regalpreis: *1,49 Euro*. Punkt für B!",
       "hintergrund": "kasse",
       "hintergrundOptionen": {
         "einkauf": [
@@ -634,7 +634,7 @@
       ]
     },
     {
-      "text": "3 Punkte: *Chef-Material*. 2: Probezeit. 1: Gefeuert. 0: Hausverbot. Schreib deine Punkte in die Kommentare! Der *Top-Kommentar* wird der nächste Job.",
+      "text": "3 Punkte: *Chef-Material*. 2: Probezeit. 1: Gefeuert. 0: Hausverbot. Deine Punkte und den *nächsten Job* in die Kommentare!",
       "hintergrund": "sunburst-lila",
       "figur": false,
       "elemente": [
@@ -674,7 +674,7 @@
           "typ": "pill",
           "text": "Deine Punkte in die Kommentare! 👇",
           "y": 1180,
-          "bei": "Schreib"
+          "bei": "Deine"
         },
         {
           "typ": "banner",
@@ -682,7 +682,7 @@
           "untertitel": "Top-Kommentar entscheidet",
           "farbe": "gelb",
           "y": 1580,
-          "bei": "Top"
+          "bei": "nächsten"
         }
       ],
       "untertitelY": 1290

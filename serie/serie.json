@@ -16,7 +16,8 @@
     "namensschild": "AZUBI"
   },
   "stimme": {
-    "voiceId": "",
-    "modell": "eleven_multilingual_v2"
+    "voiceId": "GpMEuRGYD0oLjmn4ptQZ",
+    "modell": "eleven_multilingual_v2",
+    "tempo": 1.2
   }
 }

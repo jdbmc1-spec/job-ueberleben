@@ -20,9 +20,11 @@ Entstanden am 11.11.2026 aus dem Skill der Serie „Kais GlowUp“ (Repo `jdbmc1
 Nicht im Repository (per `.gitignore`): MP4, MP3, `projekt/`, `sfx/`. Neue Dateien im Wurzelordner in `.gitignore` freigeben (`!/datei`).
 
 ## Stand (11.11.2026)
-- **Folge 1 – Job #1 Kasse** (Samstag an der Supermarktkasse) gebaut, Hook-Check bestanden (Satz 1 mit Zahl „8 Stunden“, Titel und Pill stehen ab Bild 1 mit `"sofort": true`) und **stumm** gerendert (`serie/renders/folge-01-stumm.mp4`, 59 s mit geschätzten Zeiten; mit Stimme voraussichtlich kürzer).
+- **Folge 1 – Job #1 Kasse** (Samstag an der Supermarktkasse) gebaut, Hook-Check bestanden (Satz 1 mit Zahl „8 Stunden“, Titel und Pill stehen ab Bild 1 mit `"sofort": true`) und **mit Ton** gerendert (`serie/renders/folge-01.mp4`, 58,8 s, Stimme „Jonas Falk“ `GpMEuRGYD0oLjmn4ptQZ`, Tempo 1.2).
   R1 47,12 € in Cent-Münzen + 14 Leute → A Zweite Kasse rufen ✓ · R2 Gurke ohne Preis, Kunde sagt „Angebot, 10 Cent“ → B Am Regal nachsehen ✓ (1,49 €) · R3 19:59 Uhr, randvoller Wagen → B Lächeln und kassieren ✓ (Testkauf vom Chef).
-- Noch offen: Freigabe des Nutzers, Stimme wählen (`stimmen-suche.mjs`), Ton, Profilbild, GitHub-Repo `jdbmc1-spec/job-ueberleben` (privat).
+- Stimme: Jonas Falk spricht ruhiger als die Schätzung (erster Versuch bei Tempo 1.1: 62,5 s). Tempo 1.2 ist das Maximum, also eher Text kürzen (Ziel ≤ 125 Wörter, ≤ 750 Zeichen).
+- Der ElevenLabs-Key ist in der Umgebung „job-ueberleben“ gespeichert (Proxy setzt ihn ein, `ELEVENLABS_API_KEY=proxy-injected NODE_USE_ENV_PROXY=1`).
+- Noch offen: Profilbild, Handle bestätigen.
 
 ## Regeln (Kurzfassung)
 - Jedes Video funktioniert allein (kein Vorwissen), Prämisse im ersten Satz, Comedy statt Horror.
@@ -40,5 +42,5 @@ cd serie/folge-XX/projekt && npx --yes hyperframes@0.8.223 lint
 npx --yes hyperframes@0.8.223 snapshot --at 2,10,20 --no-end -o <scratch>
 npx --yes hyperframes@0.8.223 render -o ../../renders/folge-XX-stumm.mp4
 ```
-In der Umgebung „job-ueberleben“ ist `cdn.jsdelivr.net` freigegeben, `render` läuft direkt. Der ElevenLabs-Key ist dort noch nicht hinterlegt: erst wenn der Nutzer Ton will, per Credential-Anfrage für `api.elevenlabs.io` (Header `xi-api-key`) anfragen; danach `ELEVENLABS_API_KEY=proxy-injected NODE_USE_ENV_PROXY=1` setzen.
+In der Umgebung „job-ueberleben“ ist `cdn.jsdelivr.net` freigegeben, `render` läuft direkt. Der ElevenLabs-Key ist dort hinterlegt; Befehle mit `ELEVENLABS_API_KEY=proxy-injected NODE_USE_ENV_PROXY=1` starten.
 Windows-PC: Skill nach `%USERPROFILE%\.claude\skills\job-ueberleben` kopieren, Serie nach `%USERPROFILE%\GlowUp\job`. Sounds werden mit den anderen Serien in `%USERPROFILE%\GlowUp\_sounds` geteilt.
