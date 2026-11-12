@@ -21,6 +21,7 @@
 /kanal/*
 !/kanal/*.mjs
 !/kanal/*.png
+!/kanal/*.txt
 
 *.mp3
 *.mp4

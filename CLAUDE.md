@@ -1,7 +1,7 @@
 # Würdest du deinen Job überleben? – Hinweise für Claude
 
 TikTok-Mitmach-Serie (Deutsch): ein Job pro Video, Du-Perspektive, 3 Runden mit A/B-Wahl und Countdown direkt im Bild, am Ende Wertung (3/3 Chef-Material · 2/3 Probezeit verlängert · 1/3 Gefeuert · 0/3 Hausverbot) und Aufruf: Punktzahl in die Kommentare, Top-Kommentar = nächster Job.
-Kanalname „Würdest du deinen Job überleben?“, Handle-Vorschlag @jobueberleben (noch nicht bestätigt angelegt).
+Kanalname **„Überlebst du deinen Job?“** (TikTok erlaubt max. 30 Zeichen, „Würdest du deinen Job überleben?“ hat 32; im Video bleibt der Titel „WÜRDEST DU DEINEN JOB ÜBERLEBEN?“), Handle-Vorschlag @jobueberleben. Name, Bio und Profilbilder: `kanal/kanal.txt`.
 
 Vor jeder Folge und jedem Render den **Hook-Check** aus `.claude/skills/tiktok-lernen/SKILL.md` im Chat abhaken (gemeinsames TikTok-Wissen aller Serien, Kopie aus kais-glowup Commit f92b6f7, nicht hier verändern; Updates per `verteilen.sh`).
 Für jede neue Folge gilt der Skill in `skill/` (zuerst `SKILL.md`, dann `references/drehbuch.md`, `references/folge-format.md`). Alles ist **Deutsch**.
@@ -11,11 +11,11 @@ Entstanden am 11.11.2026 aus dem Skill der Serie „Kais GlowUp“ (Repo `jdbmc1
 | Pfad | Inhalt |
 |---|---|
 | `skill/` | Skill `job-ueberleben`: `scripts/` (build, stimme, sfx, stimmen-suche), `lib/` (Figur, Hintergründe, Elemente inkl. `wahl`/`wertung`), `references/`, `vorlagen/` |
-| `serie/serie.json` | Figur (Azubi mit Namensschild) und Stimme (`voiceId` noch leer) |
+| `serie/serie.json` | Figur (Azubi mit Namensschild) und Stimme (Jonas Falk) |
 | `serie/folge-XX/folge.json` | Drehbuch je Folge |
 | `serie/renders/folge-XX.txt` | TikTok-Titel, Beschreibung, Hashtags (Pflicht je Folge; `-stumm.txt` für die Fassung ohne Ton) |
 | `.claude/skills/tiktok-lernen/` | gemeinsamer Skill: Kernlehren, Hook-Check, Benchmarks, Mess-Skripte |
-| `kanal/` | Profilbild-Generator und Profilbild (noch leer) |
+| `kanal/` | `kanal.txt` (Name, Handle, Bio), `profilbild.mjs` (Generator, 3 Varianten 1080×1080 im Kreis-Zuschnitt) und `profilbild-*.png` |
 
 Nicht im Repository (per `.gitignore`): MP4, MP3, `projekt/`, `sfx/`. Neue Dateien im Wurzelordner in `.gitignore` freigeben (`!/datei`).
 
@@ -24,7 +24,7 @@ Nicht im Repository (per `.gitignore`): MP4, MP3, `projekt/`, `sfx/`. Neue Datei
   R1 47,12 € in Cent-Münzen + 14 Leute → A Zweite Kasse rufen ✓ · R2 Gurke ohne Preis, Kunde sagt „Angebot, 10 Cent“ → B Am Regal nachsehen ✓ (1,49 €) · R3 19:59 Uhr, randvoller Wagen → B Lächeln und kassieren ✓ (Testkauf vom Chef).
 - Stimme: Jonas Falk spricht ruhiger als die Schätzung (erster Versuch bei Tempo 1.1: 62,5 s). Tempo 1.2 ist das Maximum, also eher Text kürzen (Ziel ≤ 125 Wörter, ≤ 750 Zeichen).
 - Der ElevenLabs-Key ist in der Umgebung „job-ueberleben“ gespeichert (Proxy setzt ihn ein, `ELEVENLABS_API_KEY=proxy-injected NODE_USE_ENV_PROXY=1`).
-- Noch offen: Profilbild, Handle bestätigen.
+- Profilbild in 3 Varianten erstellt (12.11.2026, Empfehlung: `profilbild-1-panik-countdown.png`). Offen: welche der Nutzer nimmt, Handle bestätigen.
 
 ## Regeln (Kurzfassung)
 - Jedes Video funktioniert allein (kein Vorwissen), Prämisse im ersten Satz, Comedy statt Horror.
