@@ -25,7 +25,7 @@ Nicht im Repository (per `.gitignore`): MP4, MP3, `projekt/`, `sfx/`. Neue Datei
 - Stimme: Jonas Falk spricht ruhiger als die Schätzung (erster Versuch bei Tempo 1.1: 62,5 s). Tempo 1.2 ist das Maximum, also eher Text kürzen (Ziel ≤ 125 Wörter, ≤ 750 Zeichen).
 - Der ElevenLabs-Key ist in der Umgebung „job-ueberleben“ gespeichert (Proxy setzt ihn ein, `ELEVENLABS_API_KEY=proxy-injected NODE_USE_ENV_PROXY=1`).
 - **Folge 1 lief mit 0 Aufrufen** (Nutzer, 13.11.). Deshalb ab Folge 2 Katastrophen-Einstieg nach Lehre 13–15.
-- **Folge 2 – Job #2 Pilot** (13.11.2026) gebaut und **stumm** gerendert (`serie/renders/folge-02-stumm.mp4`, 55,3 s geschätzt, 761 Zeichen). Bild 1 = Absturz mit Alarmrand, Echtzeit-Uhr „AUFPRALL IN 0:39“, offene Frage „Warum? Auflösung am Ende“ (Co-Pilot hat Kaffee übers Pult gekippt).
+- **Folge 2 – Job #2 Pilot** (13.11.2026) gebaut und **mit Ton** gerendert (`serie/renders/folge-02.mp4`, 60,6 s, 761 Zeichen). Bild 1 = Absturz mit Alarmrand, Echtzeit-Uhr „AUFPRALL IN 0:45“, offene Frage „Warum? Auflösung am Ende“ (Co-Pilot hat Kaffee übers Pult gekippt).
   R1 Nase steil nach unten → A Nase hochziehen ✓ („Erst fliegen, dann reden“) · R2 linkes Triebwerk brennt → B Triebwerk aus, löschen ✓ · R3 kein Flughafen, unter euch volle Autobahn und Fluss → B Fluss ✓ (Wasserung, alle 180 gerettet). Wertung: Kapitän · Co-Pilot · Passagier · Flugverbot.
   Neue Bausteine: Hintergründe `cockpit`, `fluss`, `himmel` mit `boden: "land"`, Elemente `flugzeug`, `alarm`, Kopf-Feld `uhr`, Figur `krawatte`/`schulterklappen`.
 - Profilbild in 3 Varianten erstellt (12.11.2026, Empfehlung: `profilbild-1-panik-countdown.png`). Offen: welche der Nutzer nimmt, Handle bestätigen.
