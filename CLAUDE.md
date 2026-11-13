@@ -3,7 +3,7 @@
 TikTok-Mitmach-Serie (Deutsch): ein Job pro Video, Du-Perspektive, 3 Runden mit A/B-Wahl und Countdown direkt im Bild, am Ende Wertung (3/3 Chef-Material · 2/3 Probezeit verlängert · 1/3 Gefeuert · 0/3 Hausverbot) und Aufruf: Punktzahl in die Kommentare, Top-Kommentar = nächster Job.
 Kanalname **„Überlebst du deinen Job?“** (TikTok erlaubt max. 30 Zeichen, „Würdest du deinen Job überleben?“ hat 32; im Video bleibt der Titel „WÜRDEST DU DEINEN JOB ÜBERLEBEN?“), Handle-Vorschlag @jobueberleben. Name, Bio und Profilbilder: `kanal/kanal.txt`.
 
-Vor jeder Folge und jedem Render den **Hook-Check** aus `.claude/skills/tiktok-lernen/SKILL.md` im Chat abhaken (gemeinsames TikTok-Wissen aller Serien, Kopie aus kais-glowup Commit f92b6f7, nicht hier verändern; Updates per `verteilen.sh`).
+Vor jeder Folge und jedem Render den **Hook-Check** aus `.claude/skills/tiktok-lernen/SKILL.md` im Chat abhaken (gemeinsames TikTok-Wissen aller Serien, Kopie aus kais-glowup Commit eb5f69e, nicht hier verändern; Updates per `verteilen.sh`).
 Für jede neue Folge gilt der Skill in `skill/` (zuerst `SKILL.md`, dann `references/drehbuch.md`, `references/folge-format.md`). Alles ist **Deutsch**.
 Entstanden am 11.11.2026 aus dem Skill der Serie „Kais GlowUp“ (Repo `jdbmc1-spec/kais-glowup`). Dort nichts für diese Serie committen.
 
