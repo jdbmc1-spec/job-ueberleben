@@ -415,8 +415,14 @@ function kueche() {
   return { hinten: svg(s), vorne };
 }
 
-function himmel() {
+function himmel(o = {}) {
   let s = linGrad('hi-sky', ['#6fbdf0', '#a6dbf7', '#e8f7ff']) + `<rect width="1080" height="1920" fill="url(#hi-sky)"/>`;
+  // o.boden: "land" = Landschaft weit unten (Felder, volle Autobahn, breiter Fluss) statt Rollfeld
+  if (o.boden === 'land') {
+    s += wolken(260, 12) + wolken(700, 14);
+    s += landschaft(1180);
+    return { hinten: svg(s), vorne: licht('hi-licht', 0.25, '#0a1a30') };
+  }
   s += glow('hi-sonne', 860, 260, 340, '#ffffff', 0.7) + `<circle cx="860" cy="260" r="70" fill="#fffbe6"/>`;
   s += wolken(320, 12) + wolken(900, 13);
   s += `<path d="M-20 520 Q400 470 1100 380" stroke="#fff" stroke-width="10" fill="none" opacity=".7" stroke-dasharray="40 20"/>`;
@@ -505,6 +511,61 @@ function kasse(o = {}) {
   return { hinten: svg(s), vorne };
 }
 
+
+// Landschaft von oben schräg: Felder, Autobahn voller Autos (links), breiter Fluss (rechts). y0 = Horizont
+function landschaft(y0) {
+  let s = `<rect y="${y0}" width="1080" height="${1920 - y0}" fill="#8fcf6a"/><path d="M0 ${y0} H1080" stroke="#6aa84f" stroke-width="10"/>`;
+  for (let i = 0; i < 7; i++) s += `<path d="M${-200 + i * 220} 1920 L${380 + i * 50} ${y0}" stroke="#7dbb5a" stroke-width="40" opacity=".6"/>`;
+  // Autobahn links
+  s += `<path d="M-40 1920 L420 ${y0} L480 ${y0} L300 1920Z" fill="#6b6f7d" stroke="${L}" stroke-width="7"/><path d="M130 1920 L450 ${y0}" stroke="#fff" stroke-width="6" stroke-dasharray="40 30"/>`;
+  const autos = ['#ef4444', '#3b82f6', '#ffd43b', '#22c55e', '#f97316', '#a855f7', '#ffffff'];
+  for (let i = 0; i < 16; i++) {
+    const t = i / 16, y = 1900 - t * (1900 - y0 - 20), x = 60 + t * 380 + (i % 2 ? 60 - t * 40 : 0), w = 54 - t * 40;
+    s += `<rect x="${n(x)}" y="${n(y)}" width="${n(w)}" height="${n(w * 0.6)}" rx="4" fill="${autos[i % 7]}" stroke="${L}" stroke-width="3"/>`;
+  }
+  // Fluss rechts
+  s += `<path d="M560 1920 Q640 ${n(y0 + 400)} 720 ${y0} L820 ${y0} Q900 ${n(y0 + 400)} 1120 1920Z" fill="#4aa8e8" stroke="${L}" stroke-width="7"/>`;
+  for (let i = 0; i < 6; i++) s += `<path d="M${700 + i * 40} ${1800 - i * 100} q20 -10 40 0" stroke="#bfe6ff" stroke-width="6" fill="none"/>`;
+  return s;
+}
+
+// ======================================================================================
+// COCKPIT: zwei Fenster hinter der Figur (Horizont gekippt), Instrumentenbrett + Steuerhorn vorne
+// o.horizont: y des Horizonts in den Fenstern (Standard 620; 300 = Nase steil nach unten, viel Boden)
+// o.kippen: Grad (Schräglage), o.alarm: rote Warnlichter blinken, o.anzeige: Text im Display
+// ======================================================================================
+function cockpit(o = {}) {
+  const hz = o.horizont ?? 620, kip = o.kippen ?? 0;
+  let s = `<rect width="1080" height="1920" fill="#2a3142"/>`;
+  const fenster = 'M70 300 L500 250 L500 860 L40 900Z M580 250 L1010 300 L1040 900 L580 860Z';
+  s += `<defs><clipPath id="ck-fenster"><path d="${fenster}"/></clipPath></defs>`;
+  s += `<g clip-path="url(#ck-fenster)"><rect width="1080" height="1000" fill="#7cc4f2"/><g transform="rotate(${kip} 540 ${hz})"><rect x="-600" y="${hz}" width="2300" height="1400" fill="#7fbf5a"/>${Array.from({ length: 8 }, (_, i) => `<path d="M${-400 + i * 260} ${hz + 900} L${300 + i * 70} ${hz}" stroke="#6aa84f" stroke-width="26"/>`).join('')}<path d="M-600 ${hz} H1700" stroke="#ffffff" stroke-width="6" opacity=".7"/></g>${wolken(hz - 260, 21)}</g>`;
+  s += `<path d="${fenster}" fill="none" stroke="${L}" stroke-width="22" stroke-linejoin="round"/><path d="${fenster}" fill="none" stroke="#4a5266" stroke-width="10" stroke-linejoin="round"/>`;
+  s += `<path d="M0 0 H1080 V250 L1010 300 L580 250 L500 250 L70 300 L0 260Z" fill="#3a4256" stroke="${L}" stroke-width="8"/>`;
+  s += Array.from({ length: 9 }, (_, i) => `<circle cx="${180 + i * 90}" cy="120" r="18" fill="${i % 3 ? '#9aa3b2' : '#ffd43b'}" stroke="${L}" stroke-width="5"/>`).join('');
+  s += `<rect y="900" width="1080" height="1020" fill="#262c3b"/>`;
+  if (o.alarm) s += glow('ck-alarm', 540, 700, 900, '#ff2a2a', 0.35, 'anim-puls');
+  // Instrumentenbrett vorne
+  let v = `<g stroke="${L}" stroke-width="9"><path d="M-20 1260 Q540 1180 1100 1260 V1940 H-20Z" fill="#3a4256"/><path d="M-20 1260 Q540 1180 1100 1260" fill="none" stroke="#5a6378" stroke-width="12"/></g>`;
+  const uhren = [[130, 1380], [300, 1350], [780, 1350], [950, 1380]];
+  v += uhren.map(([x, y], i) => `<g stroke="${L}" stroke-width="6"><circle cx="${x}" cy="${y}" r="66" fill="#11151f"/><circle cx="${x}" cy="${y}" r="52" fill="none" stroke="#5a6378" stroke-width="4"/><path d="M${x} ${y} L${x + Math.cos(i * 1.7 + (o.alarm ? 2.2 : 0)) * 46} ${y + Math.sin(i * 1.7 + (o.alarm ? 2.2 : 0)) * 46}" stroke="${o.alarm ? '#ff4d4d' : '#39ff88'}" stroke-width="8" stroke-linecap="round"/></g>`).join('');
+  v += `<g stroke="${L}" stroke-width="7"><rect x="420" y="1300" width="240" height="130" rx="12" fill="#0b0f18"/><text x="540" y="1384" text-anchor="middle" font-family="Archivo Black, sans-serif" font-size="${o.anzeige && o.anzeige.length > 6 ? (o.anzeige.length > 9 ? 30 : 36) : 44}" fill="${o.alarm ? '#ff4d4d' : '#39ff88'}" stroke="none">${esc(o.anzeige || (o.alarm ? 'ALARM!' : 'AUTO'))}</text></g>`;
+  if (o.alarm) v += [[230, 1480], [850, 1480], [540, 1470]].map(([x, y]) => `<circle class="anim-puls" cx="${x}" cy="${y}" r="22" fill="#ff3b3b" stroke="${L}" stroke-width="6"/>`).join('');
+  // Steuerhorn
+  v += `<g stroke="${L}" stroke-width="10" stroke-linejoin="round"><rect x="510" y="1530" width="60" height="400" fill="#2a2f3d"/><path d="M380 1500 h320 v80 q0 30 -30 30 h-60 v-40 h-140 v40 h-60 q-30 0 -30 -30z" fill="#1b1f2a"/></g>`;
+  return { hinten: svg(s), vorne: svg(v) + licht('ck-licht', 0.45, '#05070d') };
+}
+
+// FLUSS: Ufer mit Bäumen, breiter Fluss vorne (für Wasserlandungen, Boote …)
+function fluss() {
+  let s = linGrad('fl-sky', ['#7fc6f2', '#c6e9fb']) + `<rect width="1080" height="1920" fill="url(#fl-sky)"/>`;
+  s += wolken(240, 31);
+  s += `<path d="M0 900 Q270 820 540 880 T1080 860 V1000 H0Z" fill="#6aa84f" stroke="${L}" stroke-width="8"/>`;
+  s += Array.from({ length: 9 }, (_, i) => `<g stroke="${L}" stroke-width="6"><rect x="${40 + i * 120}" y="880" width="16" height="70" fill="#7a4a2a"/><circle cx="${48 + i * 120}" cy="${860 - (i % 3) * 20}" r="${56 + (i % 2) * 14}" fill="${i % 2 ? '#3f9a4a' : '#55b85c'}"/></g>`).join('');
+  s += `<rect y="980" width="1080" height="940" fill="#3d9ae0"/><path d="M0 980 H1080" stroke="${L}" stroke-width="8"/>`;
+  s += Array.from({ length: 14 }, (_, i) => `<path class="anim-schweben" d="M${(i * 157) % 1000} ${1060 + i * 60} q30 -16 60 0 q30 16 60 0" stroke="#bfe6ff" stroke-width="7" fill="none"/>`).join('');
+  return { hinten: svg(s), vorne: licht('fl-licht', 0.3, '#06203a') };
+}
 // ======================================================================================
 // DETAIL-AUFNAHMEN ohne Figur (Insert-Shots wie in den Referenzen)
 // ======================================================================================
@@ -818,7 +879,7 @@ function friseur(o = {}) {
   return { hinten: svg(s), vorne: licht('fr-licht2', 0.3, '#0a2a24') };
 }
 
-export const HINTERGRUENDE = { friseur, zimmer, strasse, park, gym, bad, bett, laden, theke, couch, kueche, himmel, krankenhaus, kasse, zahnbuerste, kuehlschrank, dusche, haus, imbiss, laufstrecke, waschbecken, berg, gipfel, ringplatz };
+export const HINTERGRUENDE = { cockpit, fluss, friseur, zimmer, strasse, park, gym, bad, bett, laden, theke, couch, kueche, himmel, krankenhaus, kasse, zahnbuerste, kuehlschrank, dusche, haus, imbiss, laufstrecke, waschbecken, berg, gipfel, ringplatz };
 
 // typ: Name aus HINTERGRUENDE oder "sunburst-<farbe>" oder "chat" (lila Sunburst)
 export function hintergrund(typ = 'zimmer', o = {}) {

@@ -10,6 +10,14 @@
 - Erzähler locker und leicht spöttisch, nie gemein. Der Witz liegt in der Situation, nicht in Klischees über Menschen.
 - Die Build-Schätzung rechnet Zahlen sehr lang (Folge 1: Schätzung 58 s bei 125 Wörtern). Die echte Länge kommt nach `stimme.mjs`.
 
+## Katastrophen-Einstieg (ab Folge 2, Lehren 13–15 aus `tiktok-lernen`)
+- **Bild 1 ist schon das Problem**, keine Titelkarte: „Du bist Pilot. Und dein Flugzeug *stürzt ab*!“ mit Alarmrand und Stempel ab Bild 1 (`sofort: true`).
+- Bei etwa 3 s ein zweites Bild zum zweiten Satz („Mit *180* Passagieren an Bord.“ → Flugzeug von außen).
+- Der Serien-Titel kommt erst bei etwa 5 s („Überlebst du das? Zähl mit!“).
+- **Echtzeit-Uhr** über die ganze Folge bis zur Rettung (`uhr` im Kopf).
+- **Offene Frage mit „Auflösung am Ende“** bei etwa 7 s („Warum? *Auflösung am Ende*!“) und kurz vor der Wertung auflösen (Folge 2: Der Co-Pilot hat Kaffee übers Pult gekippt; schon bei der Frage grinst er verdächtig).
+- Am Ende sind alle gerettet: Comedy statt Horror, keine Verletzten.
+
 ## Pflicht-Aufbau
 1. **Hook (0–3 s)**: Großaufnahme der Figur in Panik (`rahmen: "nah"`, `pose: "kopf"`), Titel-Schrift „WÜRDEST DU / DEINEN JOB / ÜBERLEBEN?“, Stempel „3 RUNDEN“.
    Satz: „Würdest du einen *Samstag* an der Supermarktkasse überleben? Zähl mit!“ – Job + absurde Zuspitzung + Aufgabe an den Zuschauer.

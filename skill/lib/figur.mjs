@@ -34,6 +34,8 @@ export const STANDARD_FIGUR = {
   sportstreifen: null, // Farbe des schrägen Streifens über dem Shirt
   schuerze: null, // Farbe der Küchenschürze
   topf: false, // Kochtopf auf dem Kopf
+  krawatte: null, // Farbe der Krawatte (Pilot, Chef)
+  schulterklappen: false, // goldene Streifen auf den Schultern (Pilot)
   namensschild: null, // Namensschild auf der Brust, z. B. 'AZUBI'
   schildFarbe: '#ffffff',
 };
@@ -336,6 +338,9 @@ function koerperSVG(o, pose, pid = 'fig') {
   if (o.schuerze) {
     s += `<path d="M236 ${t + 40} L364 ${t + 40} L396 ${saum} L204 ${saum}Z" fill="${o.schuerze}" stroke="${L}" stroke-width="7" stroke-linejoin="round"/><path d="M250 ${t + 8} L240 ${t + 44} M350 ${t + 8} L360 ${t + 44}" stroke="${L}" stroke-width="8"/><rect x="258" y="${t + 150}" width="84" height="56" rx="8" fill="#fff" opacity=".6" stroke="${L}" stroke-width="5"/>`;
   }
+  if (o.krawatte) {
+    s += `<path d="M300 ${t + 14} L284 ${t + 40} L300 ${t + 52} L316 ${t + 40}Z" fill="${o.krawatte}" stroke="${L}" stroke-width="5" stroke-linejoin="round"/><path d="M290 ${t + 50} L276 ${t + 190} L300 ${t + 222} L324 ${t + 190} L310 ${t + 50}Z" fill="${o.krawatte}" stroke="${L}" stroke-width="5" stroke-linejoin="round"/>`;
+  }
   if (o.namensschild) {
     // Namensschild am Shirt (Job-Serie): weiß, mit Clip, links vom Ärmel
     const txt = String(o.namensschild).toUpperCase();
@@ -362,6 +367,9 @@ function koerperSVG(o, pose, pid = 'fig') {
   if (!armeOben) s += armSVG(o, -1, pose, l, t) + armSVG(o, 1, pose, l, t);
   // Ärmel liegen über den Armen
   s += `<circle cx="${l + 26}" cy="${t + 74}" r="70" fill="${o.shirt}" stroke="${L}" stroke-width="${SW}"/><circle cx="${r - 26}" cy="${t + 74}" r="70" fill="${o.shirt}" stroke="${L}" stroke-width="${SW}"/>`;
+  if (o.schulterklappen) {
+    s += [l + 26, r - 26].map((x) => `<g transform="rotate(${x < 300 ? -24 : 24} ${x} ${t + 30})"><rect x="${x - 46}" y="${t + 16}" width="92" height="30" rx="6" fill="#1f2a44" stroke="${L}" stroke-width="5"/>${[0, 1, 2].map((k) => `<rect x="${x - 34 + k * 24}" y="${t + 22}" width="12" height="18" fill="#ffcf3f"/>`).join('')}</g>`).join('');
+  }
   // Handy/Konsole in beiden Händen, Bildschirm leuchtet
   if (pose === 'handy') {
     s += `<rect x="226" y="${t + 214}" width="148" height="82" rx="16" fill="#1b1630" stroke="${L}" stroke-width="7"/><rect x="240" y="${t + 226}" width="120" height="58" rx="8" fill="#7c4dff"/><circle cx="268" cy="${t + 255}" r="10" fill="#39ff88"/><rect x="300" y="${t + 240}" width="44" height="12" rx="6" fill="#ff3cac"/>`;

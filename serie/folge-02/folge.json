@@ -1,0 +1,638 @@
+{
+  "titel": "Würdest du deinen Job überleben? – Job #2 Pilot",
+  "folge": 2,
+  "job": "Pilot",
+  "runden": 3,
+  "nachlauf": 1.4,
+  "figur": {
+    "shirt": "#ffffff",
+    "krawatte": "#1f2a44",
+    "schulterklappen": true,
+    "muetze": "#1f2a44",
+    "hose": "#1f2a44",
+    "schuhe": "#1b1b1b"
+  },
+  "uhr": {
+    "label": "AUFPRALL IN",
+    "ende": {
+      "szene": 13,
+      "bei": "Platsch"
+    },
+    "endeText": "WASSERUNG ✓",
+    "alarmBei": [
+      15,
+      3
+    ],
+    "weg": {
+      "szene": 15
+    }
+  },
+  "rundeEnde": {
+    "szene": 15
+  },
+  "szenen": [
+    {
+      "text": "Du bist Pilot. Und dein Flugzeug *stürzt ab*!",
+      "hintergrund": "cockpit",
+      "hintergrundOptionen": {
+        "alarm": true,
+        "horizont": 320,
+        "kippen": -18,
+        "anzeige": "HOCHZIEHEN!"
+      },
+      "kamera": "zoom",
+      "figur": {
+        "ausdruck": "panik",
+        "pose": "kopf",
+        "rahmen": "nah",
+        "kopfOben": 400,
+        "zittern": "stürzt"
+      },
+      "elemente": [
+        {
+          "typ": "alarm",
+          "sofort": true
+        },
+        {
+          "typ": "stempel",
+          "text": "ABSTURZ!",
+          "farbe": "rot",
+          "groesse": 260,
+          "x": 840,
+          "y": 600,
+          "rot": -12,
+          "sofort": true
+        }
+      ]
+    },
+    {
+      "text": "Mit *180* Passagieren an Bord.",
+      "hintergrund": "himmel",
+      "hintergrundOptionen": {
+        "boden": "land"
+      },
+      "figur": false,
+      "elemente": [
+        {
+          "typ": "flugzeug",
+          "x": 560,
+          "y": 720,
+          "breite": 900,
+          "rot": 16,
+          "rauch": true,
+          "sturz": true,
+          "sofort": true
+        },
+        {
+          "typ": "pill",
+          "text": "180 PASSAGIERE",
+          "x": 540,
+          "y": 1080,
+          "bei": "180"
+        },
+        {
+          "typ": "alarm"
+        }
+      ]
+    },
+    {
+      "text": "Überlebst du das? Zähl mit!",
+      "hintergrund": "cockpit",
+      "hintergrundOptionen": {
+        "alarm": true,
+        "horizont": 360,
+        "kippen": -14,
+        "anzeige": "HOCHZIEHEN!"
+      },
+      "figur": {
+        "ausdruck": "schock",
+        "rahmen": "halbnah",
+        "kopfOben": 560
+      },
+      "elemente": [
+        {
+          "typ": "schrift",
+          "text": "WÜRDEST DU\nDEINEN JOB\nÜBERLEBEN?",
+          "farbe": "gelb",
+          "groesse": 0.85,
+          "y": 520,
+          "rot": -4
+        },
+        {
+          "typ": "stempel",
+          "text": "3 RUNDEN",
+          "farbe": "rot",
+          "groesse": 190,
+          "x": 860,
+          "y": 820,
+          "bei": "Zähl"
+        }
+      ]
+    },
+    {
+      "text": "Warum? *Auflösung am Ende*!",
+      "hintergrund": "cockpit",
+      "hintergrundOptionen": {
+        "alarm": true,
+        "horizont": 380,
+        "kippen": -12,
+        "anzeige": "HOCHZIEHEN!"
+      },
+      "figur": {
+        "ausdruck": "schock",
+        "rahmen": "halbnah",
+        "x": 330,
+        "breite": 820,
+        "kopfOben": 620
+      },
+      "elemente": [
+        {
+          "typ": "nebenfigur",
+          "figur": {
+            "haare": "kurz",
+            "haarFarbe": "#6b4a2a",
+            "bart": "voll",
+            "shirt": "#ffffff",
+            "krawatte": "#1f2a44",
+            "muetze": "#1f2a44",
+            "gewicht": 0.6
+          },
+          "ausdruck": "grinsen",
+          "x": 820,
+          "y": 1180,
+          "breite": 560,
+          "spiegeln": true,
+          "bei": "Warum"
+        },
+        {
+          "typ": "schrift",
+          "text": "WARUM?",
+          "farbe": "rot",
+          "groesse": 1,
+          "x": 540,
+          "y": 430,
+          "bei": "Warum"
+        },
+        {
+          "typ": "pill",
+          "text": "AUFLÖSUNG AM ENDE",
+          "x": 540,
+          "y": 600,
+          "bei": "Auflösung"
+        }
+      ]
+    },
+    {
+      "text": "Runde eins: Nase steil nach *unten*!",
+      "hintergrund": "cockpit",
+      "hintergrundOptionen": {
+        "alarm": true,
+        "horizont": 260,
+        "kippen": -6,
+        "anzeige": "HOCHZIEHEN!"
+      },
+      "figur": {
+        "ausdruck": "panik",
+        "rahmen": "halbnah",
+        "kopfOben": 620
+      },
+      "elemente": [
+        {
+          "typ": "runde",
+          "nr": 1,
+          "bei": "Runde"
+        },
+        {
+          "typ": "icon",
+          "icon": "nase",
+          "groesse": 220,
+          "x": 860,
+          "y": 560,
+          "bei": "unten"
+        },
+        {
+          "typ": "wackeln",
+          "bei": "steil"
+        }
+      ]
+    },
+    {
+      "text": "A: Nase hochziehen. B: Erst Durchsage. Drei. Zwei. Eins! Richtig: *A*!",
+      "hintergrund": "cockpit",
+      "hintergrundOptionen": {
+        "alarm": true,
+        "horizont": 260,
+        "kippen": -6,
+        "anzeige": "HOCHZIEHEN!"
+      },
+      "abdunkeln": true,
+      "figur": {
+        "ausdruck": "panik",
+        "rahmen": "halbnah",
+        "kopfOben": 620
+      },
+      "elemente": [
+        {
+          "typ": "wahl",
+          "frage": "WAS MACHST DU?",
+          "a": {
+            "text": "Nase\nhochziehen",
+            "icon": "flugzeug2",
+            "bei": "A: Nase"
+          },
+          "b": {
+            "text": "Erst\nDurchsage",
+            "icon": "mikro",
+            "bei": "B: Erst"
+          },
+          "richtig": "a",
+          "zaehlen": [
+            "Drei",
+            "Zwei",
+            "Eins"
+          ],
+          "aufloesungBei": "Richtig"
+        }
+      ]
+    },
+    {
+      "text": "Erst fliegen, dann reden. Punkt für A!",
+      "hintergrund": "cockpit",
+      "hintergrundOptionen": {
+        "alarm": true,
+        "horizont": 560,
+        "kippen": 4,
+        "anzeige": "STEIGEN"
+      },
+      "figur": {
+        "ausdruck": "anstrengung",
+        "rahmen": "halbnah",
+        "kopfOben": 620,
+        "wechsel": [
+          {
+            "bei": "Punkt",
+            "ausdruck": "jubel",
+            "pose": "jubeln"
+          }
+        ]
+      },
+      "elemente": [
+        {
+          "typ": "sfx",
+          "text": "ZIEH!",
+          "farbe": "gelb",
+          "x": 820,
+          "y": 500,
+          "bei": "fliegen"
+        },
+        {
+          "typ": "stempel",
+          "text": "+1\nPUNKT",
+          "farbe": "gruen",
+          "groesse": 220,
+          "x": 820,
+          "y": 820,
+          "bei": "Punkt"
+        }
+      ]
+    },
+    {
+      "text": "Runde zwei: Das linke Triebwerk *brennt*!",
+      "hintergrund": "himmel",
+      "hintergrundOptionen": {
+        "boden": "land"
+      },
+      "figur": false,
+      "elemente": [
+        {
+          "typ": "runde",
+          "nr": 2,
+          "bei": "Runde"
+        },
+        {
+          "typ": "flugzeug",
+          "x": 540,
+          "y": 760,
+          "breite": 940,
+          "rot": 6,
+          "feuer": true,
+          "bei": "Runde"
+        },
+        {
+          "typ": "sfx",
+          "text": "WUSCH!",
+          "farbe": "orange",
+          "x": 300,
+          "y": 470,
+          "bei": "brennt"
+        },
+        {
+          "typ": "alarm",
+          "bei": "brennt"
+        }
+      ]
+    },
+    {
+      "text": "A: Vollgas, weg vom Feuer. B: Triebwerk aus, löschen. Drei. Zwei. Eins! Richtig: *B*!",
+      "hintergrund": "cockpit",
+      "hintergrundOptionen": {
+        "alarm": true,
+        "horizont": 600,
+        "kippen": 8,
+        "anzeige": "FEUER LINKS"
+      },
+      "abdunkeln": true,
+      "figur": {
+        "ausdruck": "panik",
+        "rahmen": "halbnah",
+        "kopfOben": 620
+      },
+      "elemente": [
+        {
+          "typ": "wahl",
+          "frage": "WAS MACHST DU?",
+          "a": {
+            "text": "Vollgas,\nweg vom Feuer",
+            "icon": "flugzeug2",
+            "bei": "A: Vollgas"
+          },
+          "b": {
+            "text": "Triebwerk aus,\nlöschen",
+            "icon": "feuer",
+            "bei": "B: Triebwerk"
+          },
+          "richtig": "b",
+          "zaehlen": [
+            "Drei",
+            "Zwei",
+            "Eins"
+          ],
+          "aufloesungBei": "Richtig"
+        }
+      ]
+    },
+    {
+      "text": "Feuer aus! Punkt für B!",
+      "hintergrund": "himmel",
+      "hintergrundOptionen": {
+        "boden": "land"
+      },
+      "figur": false,
+      "elemente": [
+        {
+          "typ": "flugzeug",
+          "x": 540,
+          "y": 760,
+          "breite": 940,
+          "rot": 4,
+          "rauch": true,
+          "sofort": true
+        },
+        {
+          "typ": "stempel",
+          "text": "FEUER\nAUS!",
+          "farbe": "blau",
+          "groesse": 230,
+          "x": 260,
+          "y": 480,
+          "bei": "Feuer"
+        },
+        {
+          "typ": "stempel",
+          "text": "+1\nPUNKT",
+          "farbe": "gruen",
+          "groesse": 220,
+          "x": 820,
+          "y": 480,
+          "bei": "Punkt"
+        }
+      ]
+    },
+    {
+      "text": "Runde drei: Kein Flughafen. Unter euch: volle *Autobahn* und ein *Fluss*.",
+      "hintergrund": "himmel",
+      "hintergrundOptionen": {
+        "boden": "land"
+      },
+      "figur": false,
+      "elemente": [
+        {
+          "typ": "runde",
+          "nr": 3,
+          "bei": "Runde"
+        },
+        {
+          "typ": "flugzeug",
+          "x": 540,
+          "y": 560,
+          "breite": 560,
+          "rot": 10,
+          "rauch": true,
+          "sofort": true
+        },
+        {
+          "typ": "callout",
+          "text": "VOLLE AUTOBAHN",
+          "x": 260,
+          "y": 1040,
+          "zielX": 280,
+          "zielY": 1480,
+          "bei": "Autobahn"
+        },
+        {
+          "typ": "callout",
+          "text": "FLUSS",
+          "x": 860,
+          "y": 1040,
+          "zielX": 840,
+          "zielY": 1480,
+          "bei": "Fluss"
+        }
+      ]
+    },
+    {
+      "text": "A: Autobahn. B: Fluss. Drei. Zwei. Eins! Richtig: *B*!",
+      "hintergrund": "himmel",
+      "hintergrundOptionen": {
+        "boden": "land"
+      },
+      "abdunkeln": true,
+      "figur": false,
+      "elemente": [
+        {
+          "typ": "wahl",
+          "frage": "WO LANDEST DU?",
+          "a": {
+            "text": "Auf der\nAutobahn",
+            "icon": "autobahn",
+            "bei": "A: Autobahn"
+          },
+          "b": {
+            "text": "Auf dem\nFluss",
+            "icon": "wellen",
+            "bei": "B: Fluss"
+          },
+          "richtig": "b",
+          "zaehlen": [
+            "Drei",
+            "Zwei",
+            "Eins"
+          ],
+          "aufloesungBei": "Richtig"
+        }
+      ]
+    },
+    {
+      "text": "Platsch! Alle *180* Passagiere überleben!",
+      "hintergrund": "fluss",
+      "figur": false,
+      "elemente": [
+        {
+          "typ": "flugzeug",
+          "x": 540,
+          "y": 1060,
+          "breite": 960,
+          "rot": -2,
+          "schwimmen": true,
+          "rutsche": true,
+          "sofort": true
+        },
+        {
+          "typ": "sfx",
+          "text": "PLATSCH!",
+          "farbe": "weiss",
+          "x": 540,
+          "y": 560,
+          "bei": "Platsch",
+          "ton": "aufprall"
+        },
+        {
+          "typ": "schrift",
+          "text": "ALLE\nGERETTET!",
+          "farbe": "gruen",
+          "groesse": 0.9,
+          "x": 540,
+          "y": 1500,
+          "bei": "180"
+        },
+        {
+          "typ": "konfetti",
+          "bei": "überleben"
+        }
+      ]
+    },
+    {
+      "text": "Und warum der Absturz? Der Co-Pilot hat *Kaffee* übers Pult gekippt.",
+      "hintergrund": "cockpit",
+      "hintergrundOptionen": {
+        "horizont": 640,
+        "anzeige": "KAFFEE!"
+      },
+      "figur": {
+        "ausdruck": "wuetend",
+        "rahmen": "halbnah",
+        "x": 320,
+        "breite": 820,
+        "kopfOben": 620
+      },
+      "elemente": [
+        {
+          "typ": "nebenfigur",
+          "figur": {
+            "haare": "kurz",
+            "haarFarbe": "#6b4a2a",
+            "bart": "voll",
+            "shirt": "#ffffff",
+            "krawatte": "#1f2a44",
+            "muetze": "#1f2a44",
+            "gewicht": 0.6
+          },
+          "ausdruck": "verlegen",
+          "x": 820,
+          "y": 1180,
+          "breite": 560,
+          "spiegeln": true
+        },
+        {
+          "typ": "stempel",
+          "text": "AUFLÖSUNG",
+          "farbe": "gelb",
+          "groesse": 260,
+          "x": 540,
+          "y": 430,
+          "bei": "warum"
+        },
+        {
+          "typ": "icon",
+          "icon": "kaffee",
+          "groesse": 200,
+          "x": 640,
+          "y": 760,
+          "bei": "Kaffee",
+          "rot": 30
+        },
+        {
+          "typ": "sprechblase",
+          "text": "UPS …",
+          "x": 900,
+          "y": 880,
+          "bei": "Kaffee"
+        }
+      ]
+    },
+    {
+      "text": "3 Punkte: *Kapitän*. 2: Co-Pilot. 1: Passagier. 0: Flugverbot. Deine Punkte und den *nächsten Job* in die Kommentare!",
+      "hintergrund": "sunburst-lila",
+      "figur": false,
+      "untertitelY": 1290,
+      "elemente": [
+        {
+          "typ": "wertung",
+          "titel": "DEINE PUNKTE?",
+          "y": 700,
+          "bei": "3",
+          "zeilen": [
+            {
+              "punkte": "3/3",
+              "text": "Kapitän",
+              "farbe": "gruen",
+              "bei": "3"
+            },
+            {
+              "punkte": "2/3",
+              "text": "Co-Pilot",
+              "farbe": "gelb",
+              "bei": "2:"
+            },
+            {
+              "punkte": "1/3",
+              "text": "Passagier",
+              "farbe": "orange",
+              "bei": "1:"
+            },
+            {
+              "punkte": "0/3",
+              "text": "Flugverbot",
+              "farbe": "rot",
+              "bei": "0:"
+            }
+          ]
+        },
+        {
+          "typ": "pill",
+          "text": "Deine Punkte in die Kommentare! 👇",
+          "y": 1180,
+          "bei": "Deine"
+        },
+        {
+          "typ": "banner",
+          "titel": "NÄCHSTER JOB?",
+          "untertitel": "Top-Kommentar entscheidet",
+          "farbe": "gelb",
+          "y": 1580,
+          "bei": "nächsten"
+        }
+      ]
+    }
+  ]
+}

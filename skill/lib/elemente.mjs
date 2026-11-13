@@ -6,6 +6,13 @@ import { figurSVG, hundSVG, schafSVG, fakeFotoSVG } from './figur.mjs';
 const L = F.linie;
 
 export const ICONS = {
+  kaffee: `<path d="M10 18h24v16a8 8 0 0 1-8 8h-8a8 8 0 0 1-8-8z" fill="#fff" stroke="currentColor" stroke-width="3"/><path d="M34 22h4a5 5 0 0 1 0 10h-4" fill="none" stroke="currentColor" stroke-width="3"/><path d="M12 22h20v4H12z" fill="#7a4a2a"/><path d="M17 6q-3 4 0 8M24 4q-3 4 0 8" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>`,
+  flugzeug2: `<path d="M4 26l40-14-6 8 6 2-6 4 6 8-40-8z" fill="#fff" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>`,
+  autobahn: `<path d="M14 44L22 4h4l8 40z" fill="#6b6f7d" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M24 8v6M24 20v6M24 32v8" stroke="#fff" stroke-width="2.5"/><rect x="10" y="30" width="9" height="6" rx="1.5" fill="#ef4444" stroke="currentColor" stroke-width="2"/><rect x="29" y="18" width="8" height="5" rx="1.5" fill="#ffd43b" stroke="currentColor" stroke-width="2"/>`,
+  wellen: `<path d="M4 18q5-6 10 0t10 0 10 0 10 0M4 28q5-6 10 0t10 0 10 0 10 0M4 38q5-6 10 0t10 0 10 0 10 0" fill="none" stroke="#7cc8ff" stroke-width="4" stroke-linecap="round"/>`,
+  feuer: `<path d="M24 4c4 10 14 14 14 26a14 14 0 0 1-28 0c0-8 6-10 6-18 4 4 6 6 8 10 2-6 0-12 0-18z" fill="#ff7a1a" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M24 26c3 4 6 6 6 10a6 6 0 0 1-12 0c0-4 4-6 6-10z" fill="#ffd43b"/>`,
+  nase: `<path d="M24 6v30M12 26l12 14 12-14" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>`,
+  mikro: `<rect x="17" y="4" width="14" height="24" rx="7" fill="#cfd3dd" stroke="currentColor" stroke-width="3"/><path d="M11 22a13 13 0 0 0 26 0M24 35v8M16 44h16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>`,
   doener: `<circle cx="16" cy="13" r="6" fill="#4cd97b" stroke="currentColor" stroke-width="2"/><circle cx="31" cy="12" r="6" fill="#4cd97b" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="10" r="6" fill="#e2474b" stroke="currentColor" stroke-width="2"/><path d="M10 17l6-5 5 4 6-5 5 5 6-3 1 7H9z" fill="#9b5a2c" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M7 20Q24 14 41 20L32 43Q24 46 16 43Z" fill="#eec07c" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M14 25Q24 22 34 25" fill="none" stroke="#c88f4a" stroke-width="3" stroke-linecap="round"/><circle cx="20" cy="34" r="1.6" fill="#c88f4a"/><circle cx="28" cy="31" r="1.6" fill="#c88f4a"/><circle cx="25" cy="39" r="1.6" fill="#c88f4a"/>`,
   kochtopf: `<path d="M9 18h30v18a6 6 0 0 1-6 6H15a6 6 0 0 1-6-6z" fill="#c4cbd6" stroke="currentColor" stroke-width="3"/><path d="M6 18h36" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><path d="M2 26h7M39 26h7" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><path d="M15 24v12" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".7"/>`,
   paket: `<rect x="6" y="14" width="36" height="28" rx="3" fill="#d9a066" stroke="currentColor" stroke-width="3"/><path d="M6 24h36" stroke="currentColor" stroke-width="3"/><rect x="20" y="14" width="8" height="28" fill="#f5e6b8" stroke="currentColor" stroke-width="2"/><path d="M14 8l10 6 10-6" fill="none" stroke="currentColor" stroke-width="3"/>`,
@@ -426,6 +433,57 @@ function handyvideo(el, c) {
   return { html: huelle(c.id, posX(el.x), posY(el.y, 900), inner, { rot: el.rot || 0, z: 30 }), tl };
 }
 
+// Verkehrsflugzeug von der Seite (Nase rechts). { typ:"flugzeug", breite, rot, rauch, feuer, sturz, schwimmen, rutsche, spiegeln }
+// sturz: kippt während der Szene weiter nach unten und rutscht ab (+ Wackeln); schwimmen: dümpelt auf dem Wasser
+function flugzeugSVG(o, id) {
+  const fenster = Array.from({ length: 14 }, (_, i) => `<rect x="${170 + i * 34}" y="128" width="18" height="22" rx="7" fill="#7cc8ff" stroke="${L}" stroke-width="3"/>`).join('');
+  let s = `<svg viewBox="0 0 900 340" xmlns="http://www.w3.org/2000/svg" style="overflow:visible"><g stroke="${L}" stroke-linejoin="round">`;
+  s += `<path d="M90 120 L40 20 L110 20 L190 120Z" fill="#3b82f6" stroke-width="8"/>`; // Leitwerk
+  s += `<path d="M70 170 L10 150 L20 190 L120 190Z" fill="#dbe4f0" stroke-width="7"/>`; // Höhenruder
+  s += `<path d="M60 110 Q60 100 120 100 L760 100 Q860 104 880 160 Q860 210 760 214 L120 214 Q70 214 60 190Z" fill="#ffffff" stroke-width="9"/>`; // Rumpf
+  s += `<path d="M70 176 L860 176" stroke="#3b82f6" stroke-width="14"/>`;
+  s += `<path d="M800 120 Q850 126 866 150 L800 150Z" fill="#1b2a44" stroke-width="5"/>`; // Cockpitfenster
+  s += fenster;
+  s += `<rect x="700" y="118" width="34" height="74" rx="8" fill="#e6ecf3" stroke-width="5"/>`; // Tür
+  s += `<path d="M330 196 L560 196 L420 330 L360 330Z" fill="#c9d3e0" stroke-width="8"/>`; // Flügel
+  s += `<rect x="420" y="232" width="120" height="54" rx="26" fill="#9aa3b2" stroke-width="7"/><ellipse cx="540" cy="259" rx="10" ry="24" fill="#3d3f4c" stroke-width="5"/>`; // Triebwerk
+  s += `</g>`;
+  if (o.feuer) s += `<g id="${id}-feuer"><path d="M420 240 q-60 -10 -110 20 q40 0 30 20 q-50 0 -90 30 q60 10 170 -20z" fill="#ff7a1a" stroke="${L}" stroke-width="6" stroke-linejoin="round"/><path d="M420 250 q-40 0 -70 16 q30 4 20 14 q50 0 50 -12z" fill="#ffd43b"/></g>`;
+  if (o.rutsche) s += `<path d="M700 214 L734 214 L860 330 L800 340Z" fill="#ffd43b" stroke="${L}" stroke-width="7" stroke-linejoin="round"/>`;
+  s += `</svg>`;
+  return s;
+}
+function flugzeug(el, c) {
+  const w = el.breite || 820;
+  const t = c.zeit(el.bei);
+  const id = c.id;
+  let rauch = '';
+  if (el.rauch || el.feuer) {
+    rauch = Array.from({ length: 7 }, (_, i) => `<div class="fz-rauch" id="${id}-r${i}" style="left:${n(w * 0.47 - i * 70)}px;top:${n(w * 0.29 - i * 18)}px;width:${70 + i * 22}px;height:${70 + i * 22}px"></div>`).join('');
+  }
+  const inner = `<div class="fz" style="width:${w}px;height:${n((w * 340) / 900)}px;${el.spiegeln ? 'transform:scaleX(-1);' : ''}">${rauch}<div class="fz-svg">${flugzeugSVG(el, id)}</div></div>`;
+  const tl = [el.sofort ? '' : pop(id, t, 1.6)];
+  const d = Math.max(0.5, c.ende - t);
+  if (el.sturz) {
+    tl.push(`tl.to("#${id}",{rotation:"+=14",y:"+=260",x:"+=60",duration:${n(d)},ease:"power1.in"},${n(t)});`);
+    tl.push(`tl.to("#${id} .fz-svg",{x:6,y:-4,duration:.06,yoyo:true,repeat:${Math.floor(d / 0.06)}},${n(t)});`);
+  }
+  if (el.schwimmen) tl.push(`tl.to("#${id}",{y:"-=14",rotation:"+=1.5",duration:.8,yoyo:true,repeat:${Math.max(1, Math.floor(d / 0.8))},ease:"sine.inOut"},${n(t)});`);
+  if (rauch) {
+    for (let i = 0; i < 7; i++) tl.push(`tl.fromTo("#${id}-r${i}",{scale:.4,opacity:.9},{scale:1.4,opacity:.15,x:-60,y:-40,duration:.9,repeat:${Math.max(1, Math.floor(d / 0.9))},ease:"none"},${n(t + i * 0.12)});`);
+  }
+  if (el.feuer) tl.push(`tl.to("#${id}-feuer",{scaleX:1.12,scaleY:.9,transformOrigin:"420px 250px",duration:.12,yoyo:true,repeat:${Math.max(1, Math.floor(d / 0.12))}},${n(t)});`);
+  return { html: huelle(id, posX(el.x), posY(el.y, 820), inner, { rot: el.rot || 0, z: el.z || 22 }), tl: tl.filter(Boolean) };
+}
+
+// Roter, pulsierender Alarmrand über dem ganzen Bild (Katastrophen-Einstieg). { typ:"alarm", bei, weg }
+function alarm(el, c) {
+  const t = c.zeit(el.bei);
+  const bis = el.weg != null ? c.zeit(el.weg) : c.ende;
+  const html = `<div class="alarmrand" id="${c.id}"></div>`;
+  return { html, tl: [`tl.fromTo("#${c.id}",{opacity:1},{opacity:.25,duration:.32,yoyo:true,repeat:${Math.max(1, Math.floor((bis - t) / 0.32))},ease:"sine.inOut"},${n(t)});`] };
+}
+
 // ---------- Job-Serie ----------------------------------------------------------
 // Wahl mit Countdown direkt im Video: Frage, Karten A (blau) / B (orange), Countdown-Kreis
 // (Ziffern an die gesprochenen Wörter "Drei", "zwei", "eins" geankert), dann Auflösung:
@@ -503,7 +561,7 @@ function wertung(el, c) {
   return { html: huelle(c.id, 540, posY(el.y, 820), `<div class="wertung">${titel}${zeilen}</div>`, { z: 34 }), tl };
 }
 
-export const ELEMENTE = { pill, sfx, schrift, zahl, banner, callout, chat, umfrage, fakefoto, folgen, icon, hund, nebenfigur, karte, bild, sprechblase, notiz, sperrbildschirm, terminal, schild, herzen, stempel, liste, konfetti, info, namensschild, kreis, handyvideo, schaf, wahl, wertung };
+export const ELEMENTE = { pill, sfx, schrift, zahl, banner, callout, chat, umfrage, fakefoto, folgen, icon, hund, nebenfigur, karte, bild, sprechblase, notiz, sperrbildschirm, terminal, schild, herzen, stempel, liste, konfetti, info, namensschild, kreis, handyvideo, schaf, wahl, wertung, flugzeug, alarm };
 
 export function element(el, ctx) {
   const fn = ELEMENTE[el.typ];

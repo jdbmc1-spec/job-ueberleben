@@ -52,7 +52,7 @@ Der HUD-Bereich oben (y < 260) und die Untertitelzone (y ≈ 1380–1500) mögli
 | `kueche` | Fliesen, Fenster, Arbeitsplatte vorne mit Pfanne | – |
 | `theke` | Laden-Theke vorne, Schild hinten | `schild: "BÄCKEREI"` |
 | `laden` | Supermarkt-Fassade | `schild: "FRISCHMARKT"` |
-| `himmel` | Himmel mit Wolken (Flughafen/Reise) | – |
+| `himmel` | Himmel mit Wolken (Flughafen/Reise) | `boden: "land"` → statt Rollfeld Landschaft weit unten: volle Autobahn links, Fluss rechts |
 | `krankenhaus` | Patientenzimmer: Herzmonitor (pulsiert), Infusionsständer, Fenster mit Jalousie, Rotes-Kreuz-Schild, Uhr | `bett: true` → Krankenbett mit Decke + Gitter vorne (Figur mit `rahmen: "kopf"`, z. B. `breite: 900, kopfOben: 760`) |
 | `kasse` | Supermarkt-Kasse: bunte Regale, Kassenband mit Einkauf + Kassendisplay vorne. Job-Serie: Kassierer-Figur `rahmen: "ganz"`, `x: 260` (hinter dem Display), Kunde als `nebenfigur` rechts (`x: 800, y: 1130, breite: 480, spiegeln: true`) | `einkauf: ["pizza","chips","energy","cola","burger","salat","wasser","creme","maske","gurke","muenzen","wagen"]`, `betrag: "23,47 €"`, `uhr: "19:59"` (Digitaluhr an der Wand, `uhrFarbe`) |
 | `imbiss` | Döner-Laden: zwei Drehspieße mit glühendem Grill, Preisschild, Zutaten-Theke vorne (Figur `rahmen: "halbnah"`, `kopfOben: 720`) | `schild: "DÖNER"`, `preis: "7,50 €"` |
@@ -62,6 +62,8 @@ Der HUD-Bereich oben (y < 260) und die Untertitelzone (y ≈ 1380–1500) mögli
 | `gipfel` | Felsgipfel über dem Wolkenmeer mit Fahne „TOP“ (Figur `rahmen: "ganz"`) | – |
 | `ringplatz` | Dorfplatz in den Bergen: Ringermatte, Holzzaun, Zuschauerreihe, Banner | `banner: "FINALE"` (Standard „DORF-TURNIER“) |
 | `friseur` | Friseursalon: Schild oben, großer Spiegel mit Glühbirnen, Regal mit Flaschen links, Preistafel rechts, drehende Friseurstange, Ablage mit Schere/Kamm, Schachbrett-Boden mit Haarschnipseln (Figur `ganz` oder `halbnah`, `kopfOben: 720`) | `schild: "SALON"`, `preis: "25 €"`, `preisText: "HERREN-\nSCHNITT"`, `haare: 60` (Anzahl Schnipsel) |
+| `cockpit` | Cockpit: zwei Fenster hinter der Figur mit Himmel/Boden, Instrumentenbrett mit Uhren, Display und Steuerhorn vorne (Figur `halbnah`, `kopfOben: 620`; Hook mit `nah`, `kopfOben: 400`) | `horizont` (y des Horizonts, 260 = Nase steil runter, 620 = gerade), `kippen` (Grad), `alarm: true` (rote Warnlichter, roter Schein), `anzeige: "HOCHZIEHEN!"` |
+| `fluss` | Ufer mit Bäumen, breiter Fluss mit Wellen (Wasserlandung, Boote) | – |
 | `kuehlschrank` | **Detailaufnahme** (ohne Figur): offener, fast leerer Kühlschrank mit Ketchup und vergammeltem Salat | – |
 | `zahnbuerste` | **Detailaufnahme**: verdreckte Zahnbürste im Becher, Spiegel mit Spinnweben, Waschbecken | – |
 | `dusche` | **Detailaufnahme**: verschimmelte Dusche mit Spinne | – |
@@ -208,3 +210,19 @@ Wahl-Szene (Muster):
 }
 ```
 Achtung: `schrift.groesse` ist ein **Faktor** (0.9), keine Pixelzahl.
+
+### Neu in Folge 2 (Pilot) – Katastrophen-Einstieg nach Lehre 13–15
+| `typ` | Felder | Aussehen |
+|---|---|---|
+| `flugzeug` | `breite` (820), `rot`, `rauch`, `feuer` (Triebwerk brennt, Flammen flackern), `sturz` (kippt und sackt während der Szene ab, zittert), `schwimmen` (dümpelt), `rutsche` (gelbe Notrutsche), `spiegeln` | Verkehrsflugzeug von der Seite, Nase rechts |
+| `alarm` | `bei`, `weg` | roter pulsierender Alarmrand über dem ganzen Bild (Sirene) |
+
+Folgen-Kopf **Echtzeit-Uhr** (Lehre 14):
+```json
+"uhr": { "label": "AUFPRALL IN", "start": { "szene": 1 }, "ende": { "szene": 13, "bei": "Platsch" }, "endeText": "WASSERUNG ✓", "alarmBei": [15, 3], "weg": { "szene": 15 } }
+```
+Rote Pill unter dem HUD, zählt **sekundengenau in Echtzeit** von (ende − start) auf 0:00. Der Startwert passt sich der Stimme automatisch an, deshalb die Zahl nicht in den Sprechertext schreiben. Bei `alarmBei` pulsiert sie mit Sirene, in den letzten 5 s tickt sie. Bei 0 springt sie auf den grünen `endeText`.
+
+Figur-Extras: `krawatte: "#1f2a44"`, `schulterklappen: true` (Pilot), Pilotenmütze = `muetze: "#1f2a44"`.
+Icons neu: `kaffee`, `flugzeug2`, `autobahn`, `wellen`, `feuer`, `nase`, `mikro`.
+Wichtig: `sofort: true` auf Elementen in Szene 1, damit Bild 1 schon komplett das Problem zeigt (Alarmrand, Stempel „ABSTURZ!“).

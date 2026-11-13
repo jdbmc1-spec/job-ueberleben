@@ -129,6 +129,8 @@ function autoTon(el, t, zeit) {
       ton('pop', t, 1);
       (el.zeilen || []).forEach((z, i) => ton('haken', z.bei != null ? zeit(z.bei) : t + 0.35 + i * 0.45, 1));
       return;
+    case 'alarm': return ton('sirene', t, 2);
+    case 'flugzeug': return ton(el.sturz ? 'bass-hit' : el.schwimmen ? 'blubbern' : 'whoosh', t, 1);
     case 'herzen': return ton('herz', t, 1);
     case 'schaf': return ton('schaf', t + 0.3, 2);
     case 'notiz': return ton('haken', t, 1);
@@ -348,6 +350,15 @@ for (const s of szenen) {
   }
 }
 
+// Sounds der Echtzeit-Uhr (müssen vor dem Mischen gesammelt werden): Sirene bei den Alarm-Sekunden, Ticken in den letzten 5 s
+if (folge.uhr && autoSounds) {
+  const u = folge.uhr;
+  const zt = (a) => szenen[(a?.szene || 1) - 1].zeit(a?.bei ?? (a?.szene ? null : 0));
+  const t0 = u.start ? zt(u.start) : 0, t1 = zt(u.ende);
+  const N = Math.max(1, Math.round(t1 - t0)), schritt = (t1 - t0) / N;
+  for (const a of u.alarmBei || [15, 3]) if (a < N) ton('sirene', t0 + (N - a) * schritt, 2, 0.35);
+  for (let k = Math.max(1, N - 4); k <= N; k++) ton('zaehler', t0 + k * schritt, 1, 0.3);
+}
 // ---------- Töne auflösen ----------
 // Reihenfolge der Quellen: eigener Ordner der Folge (sfx/), Serien-Bibliothek (_sounds), Skill (sounds/)
 const soundDatei = (key) => [path.join(ordner, 'sfx', `${key}.mp3`), path.join(SOUND_ORDNER, `${key}.mp3`), path.join(SKILL, 'sounds', `${key}.mp3`)].find((p) => fs.existsSync(p));
@@ -470,6 +481,25 @@ if (folge.risiko) {
     tl.push(`tl.fromTo("#risiko-plus${k}",{opacity:0,y:20,scale:.5},{opacity:1,y:0,scale:1,duration:.3,ease:"back.out(3)"},${n(g.t)});tl.to("#risiko-plus${k}",{opacity:0,y:-30,duration:.4},${n(g.t + 1.4)});`);
     if (werte[k + 1] >= 100) tl.push(`tl.to("#hud-in .hud-risiko",{scale:1.08,duration:.15,yoyo:true,repeat:5},${n(g.t + 0.3)});`);
   });
+}
+// Echtzeit-Uhr (Lehre 14): "uhr": { "label": "AUFPRALL IN", "start": { "szene": 1 }, "ende": { "szene": 13, "bei": "Platsch" }, "endeText": "GELANDET!", "alarmBei": [15, 3] }
+// Zählt im Video wirklich sekundengenau runter, Startwert = Abstand zwischen start und ende (passt sich der Stimme an).
+if (folge.uhr) {
+  const u = folge.uhr;
+  const zt = (a) => szenen[(a?.szene || 1) - 1].zeit(a?.bei ?? (a?.szene ? null : 0));
+  const t0 = u.start ? zt(u.start) : 0, t1 = zt(u.ende);
+  const N = Math.max(1, Math.round(t1 - t0));
+  const fmt = (k) => `${Math.floor(k / 60)}:${String(k % 60).padStart(2, '0')}`;
+  hud += `<div class="hud-uhr" id="uhr"><div class="u-in" id="uhr-in"><span>${esc(u.label || 'NOCH')}</span><span class="u-zahl">${Array.from({ length: N + 1 }, (_, k) => `<b id="uhr-z${k}" style="opacity:${k ? 0 : 1}">${fmt(N - k)}</b>`).join('')}</span></div><div class="u-ende" id="uhr-ende">${esc(u.endeText || 'GESCHAFFT!')}</div></div>`;
+  const schritt = (t1 - t0) / N;
+  for (let k = 1; k <= N; k++) tl.push(`tl.set("#uhr-z${k - 1}",{opacity:0},${n(t0 + k * schritt)});tl.set("#uhr-z${k}",{opacity:1},${n(t0 + k * schritt)});`);
+  for (const a of u.alarmBei || [15, 3]) {
+    if (a >= N) continue;
+    const ta = t0 + (N - a) * schritt;
+    tl.push(`tl.to("#uhr-in",{scale:1.18,duration:.12,yoyo:true,repeat:5},${n(ta)});`);
+  }
+  tl.push(`tl.set("#uhr-in",{opacity:0},${n(t1 + 0.05)});tl.fromTo("#uhr-ende",{opacity:0,scale:1.6},{opacity:1,scale:1,duration:.3,ease:"back.out(3)"},${n(t1 + 0.05)});`);
+  if (u.weg) tl.push(`tl.to("#uhr",{opacity:0,duration:.25},${n(zt(u.weg))});`);
 }
 // HUD erst später einblenden (z. B. wenn die Mission feststeht): "hudBei": { "szene": 4, "bei": "30" }
 hud = `<div id="hud-in">${hud}</div>`;
